@@ -1,11 +1,9 @@
-<h1>Welcome to the Home Page!</h1>
+<x-layout>
+   <main class="py-10">
+      <h1>Veja seus hábitos ganharem vida</h1>
 
-<p>Olá {{$name}}</p>
-
-<p>Seus hábitos são:</p>
-
-<ul>
-   @foreach($habits as $habit)
-      <li>{{$habit}}</li>
-   @endforeach
-</ul>
+      @auth
+         <p>Bem vindo(a), {{auth()->user()->name}}!</p>
+      @endauth
+   </main>
+</x-layout>
