@@ -7,6 +7,7 @@ use Database\Factories\UserFactory;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Attributes\Hidden;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 #[Fillable([
@@ -35,5 +36,15 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    //UM USUÁRIO PODE TER MUITOS HÁBITOS
+    public function habits(): HasMany {
+        return $this->hasMany(Habit::class);
+    }
+
+    //UM USUÁRIO PODE TER MUITOS REGISTROS
+    public function habitLogs(): HasMany {
+        return $this->hasMany(Habitlog::class);
     }
 }
