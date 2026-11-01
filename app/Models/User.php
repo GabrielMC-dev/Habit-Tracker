@@ -12,7 +12,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 #[Fillable([
             'name',
             'email',
-            'password'
+            'password',
             ])]
 
 #[Hidden([
